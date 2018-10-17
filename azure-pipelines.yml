@@ -17,5 +17,5 @@ steps:
   displayName: 'docker login'
 - script: docker tag $(imageName) $(DOCKER_ID_USER)/$(imageName)
   displayName: 'docker tag'
-- script: docker push $(DOCKER_ID_USER)/dimbu/$(imageName)
+- script: docker push $(DOCKER_ID_USER)/$(imageName)
   displayName: 'docker push'
