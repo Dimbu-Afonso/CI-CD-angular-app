@@ -13,9 +13,9 @@ variables:
 steps:
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
-- script: docker tag $(imageName) $(DOCKER_ID_USER)/$(imageName)
-  displayName: 'docker tag'
 - script: docker login -u $(docker.user) -p $(docker.pass) 
   displayName: 'docker login'
-- script: docker push $(DOCKER_ID_USER)/$(imageName)
+- script: docker tag $(imageName) $(DOCKER_ID_USER)/$(imageName)
+  displayName: 'docker tag'
+- script: docker push $(DOCKER_ID_USER):$(imageName)
   displayName: 'docker push'
