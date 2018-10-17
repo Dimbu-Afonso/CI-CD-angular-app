@@ -15,3 +15,5 @@ steps:
   displayName: 'docker build'
 - script: docker tag $(imageName) $(DOCKER_ID_USER)/$(imageName)
   displayName: 'docker tag'
+- script: docker push $(DOCKER_ID_USER)/$(imageName)
+  displayName: 'docker push'
