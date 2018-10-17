@@ -15,7 +15,7 @@ steps:
   displayName: 'docker build'
 - script: docker tag $(imageName) $(DOCKER_ID_USER)/$(imageName)
   displayName: 'docker tag'
-- script: docker login -u dimbu -p afonsod
+- script: docker login -u -p 
   displayName: 'docker login'
 - script: docker push $(DOCKER_ID_USER)/$(imageName)
   displayName: 'docker push'
