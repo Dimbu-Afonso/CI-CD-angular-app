@@ -13,9 +13,9 @@ variables:
 steps:
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
-- script: docker login https://index.docker.io/v1/ -u $(docker.user) -p $(docker.pass) 
+- script: docker login -u $(docker.user) -p $(docker.pass) 
   displayName: 'docker login'
 - script: docker tag $(imageName) $(DOCKER_ID_USER)/$(imageName)
   displayName: 'docker tag'
-- script: docker push $(DOCKER_ID_USER)/$(imageName)
+- script: docker push $(imageName)/dimbu
   displayName: 'docker push'
