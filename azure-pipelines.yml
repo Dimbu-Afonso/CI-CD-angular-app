@@ -7,7 +7,7 @@ pool:
   vmImage: 'Ubuntu 16.04'
 
 variables:
-  imageName: 'dimbu/angular:$(build.buildId)'
+  imageName: 'dimbu-angular:$(build.buildId)'
   DOCKER_ID_USER: 'dimbu'
 
 steps:
@@ -17,5 +17,5 @@ steps:
   displayName: 'docker login'
 - script: docker tag $(imageName) $(DOCKER_ID_USER)/$(imageName)
   displayName: 'docker tag'
-- script: docker push dimbu/$(imageName)
+- script: docker push $(docker.user)/$(imageName)
   displayName: 'docker push'
