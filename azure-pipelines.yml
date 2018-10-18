@@ -15,7 +15,7 @@ steps:
   displayName: 'docker build'
 - script: docker login -u $(docker.user) -p $(docker.pass) 
   displayName: 'docker login'
-- script: docker tag $(imageName) $(imageName):latest
+- script: docker tag $(imageName) $(DOCKER_ID_USER)/$(imageName)
   displayName: 'docker tag'
 - script: docker push $(docker.user)/$(imageName)
   displayName: 'docker push'
