@@ -19,3 +19,9 @@ steps:
   displayName: 'docker tag'
 - script: docker push $(docker.user)/$(imageName)
   displayName: 'docker push'
+
+- task: CopyFiles@2
+  inputs:
+    contents: deployment.azure.yaml
+    targetFolder: $(Build.ArtifactStagingDirectory)
+
